@@ -1,0 +1,29 @@
+{
+  "name": "argus-console",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3107 -H 127.0.0.1",
+    "build": "next build",
+    "start": "next start -p 3107 -H 127.0.0.1",
+    "test": "tsx scripts/test-router.ts",
+    "test:creatives": "python3 -m unittest discover -s scripts -p 'test_creative_intelligence.py' && tsx scripts/test-creative-intelligence.ts"
+  },
+  "dependencies": {
+    "next": "^15.3.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "three": "^0.176.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@types/three": "^0.176.0",
+    "tsx": "^4.22.4",
+    "typescript": "^5.8.0"
+  },
+  "overrides": {
+    "postcss": "^8.5.28"
+  }
+}

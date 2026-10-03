@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  ARGUS runner watchdog (launchd template).
+  Do not load this file directly - run runner/install-watchdog.sh, which
+  substitutes __NODE__ and __ARGUS_DIR__ and installs it under
+  ~/Library/LaunchAgents/com.argus.runner.plist.
+
+  KeepAlive.SuccessfulExit=false pairs with the hardened runner's exit
+  contract: fatal failures exit non-zero (restart), a duplicate instance
+  yielding to a live runner exits 0 (no respawn loop).
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.argus.runner</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>__NODE__</string>
+    <string>__ARGUS_DIR__/runner/runner.js</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>__ARGUS_DIR__</string>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <dict>
+    <key>SuccessfulExit</key>
+    <false/>
+  </dict>
+  <key>ThrottleInterval</key>
+  <integer>15</integer>
+  <key>StandardOutPath</key>
+  <string>__ARGUS_DIR__/runner/watchdog.log</string>
+  <key>StandardErrorPath</key>
+  <string>__ARGUS_DIR__/runner/watchdog.log</string>
+</dict>
+</plist>

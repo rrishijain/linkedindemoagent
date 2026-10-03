@@ -1,0 +1,27 @@
+# voice-server dependencies — install into voice-server/.venv:
+#   python -m venv .venv && .venv/Scripts/pip install -r requirements.txt
+#
+# uvicorn[standard] is load-bearing: bare uvicorn has no WebSocket backend,
+# so /events spams "No supported WebSocket library detected" on every console
+# connection attempt and hands-free events never reach the browser.
+fastapi>=0.110
+uvicorn[standard]>=0.29
+
+# STT — faster-whisper pulls ctranslate2 + av (webm/opus decode)
+faster-whisper>=1.0
+
+# TTS — kokoro-onnx pulls onnxruntime; on an NVIDIA machine ALSO install
+# onnxruntime-gpu + the nvidia-cudnn/cublas wheels for the CUDA path
+# (server.py falls back to CPU automatically when they're absent)
+kokoro-onnx>=0.4.7
+
+# wake word (wakeword.py)
+openwakeword>=0.6
+sounddevice>=0.4.6
+
+# shared audio/maths
+numpy>=1.26
+soundfile>=0.12.1
+
+# dev probe only (ws_probe.py); also serves as uvicorn's ws backend
+websockets>=12.0

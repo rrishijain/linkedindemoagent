@@ -1,0 +1,41 @@
+node_modules/
+.next/
+out/
+.env*.local
+*.tsbuildinfo
+next-env.d.ts
+.playwright-cli/
+voice-server/.venv/
+voice-server/*.onnx
+voice-server/*.bin
+voice-server/samples/
+voice-server/__pycache__/
+runner/runner.log
+runner/runner.pid
+.argus-config.json
+starter-vault/system/queue/*.json
+starter-vault/system/voice/
+starter-vault/system/runner-status.json
+
+# Claude Code — personal, per-project settings (docs: keep out of git)
+.claude/settings.local.json
+
+# ARGUS local setup
+.env
+.env.local
+.argus-config.json
+logs/
+runner/runner.log
+voice-server/kokoro-v1.0.onnx
+voice-server/voices-v1.0.bin
+
+# Private configuration, generated reports and local runtime artifacts
+.env*
+/.argus-local/
+/outputs/
+/reports/
+/*.pdf
+*.log
+*.pid
+**/__pycache__/
+.DS_Store
