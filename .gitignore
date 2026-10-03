@@ -32,6 +32,7 @@ voice-server/voices-v1.0.bin
 # Private configuration, generated reports and local runtime artifacts
 .env*
 /.argus-local/
+/.trigger/
 /outputs/
 /reports/
 /*.pdf
