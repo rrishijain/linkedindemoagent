@@ -24,6 +24,7 @@
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "@types/three": "^0.176.0",
+    "trigger.dev": "^4.7.2",
     "tsx": "^4.22.4",
     "typescript": "^5.8.0"
   },
